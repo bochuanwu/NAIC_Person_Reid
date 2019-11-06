@@ -1,0 +1,1 @@
+python3 tools/train.py --config_file='configs/softmax_triplet_with_center_101.yml' MODEL.DEVICE_ID "('0,1')" DATASETS.NAMES "('market1501')" DATASETS.ROOT_DIR "('../../reid-mgn/reid-mgn-master/mgn/first_dataset')" OUTPUT_DIR "('./market1501/Focalloss-margin-0.3-resnet101')"
