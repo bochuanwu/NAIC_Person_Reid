@@ -15,5 +15,5 @@
 - BNNeck
 - Center loss
 - Focal loss
-- OSM Loss(https://arxiv.org/pdf/1811.01459v2.pdf)
-- GCNet(https://arxiv.org/abs/1904.11492?context=cs.LG)
+- [OSM Loss](https://arxiv.org/pdf/1811.01459v2.pdf)
+- [GCNet](https://arxiv.org/abs/1904.11492?context=cs.LG)
