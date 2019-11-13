@@ -22,14 +22,21 @@ _C.MODEL.DEVICE = "cuda"
 # ID number of GPU
 _C.MODEL.DEVICE_ID = '6'
 # Name of backbone
-_C.MODEL.NAME = 'resnet50_ibn_a'
+#_C.MODEL.NAME = 'resnet50_ibn_a'
 #_C.MODEL.NAME = 'resnet101'
-
+_C.MODEL.NAME = 'resnet152'
+# If use IBN block
+_C.MODEL.WITH_IBN = False
+# Global Context Block configuration
+_C.MODEL.STAGE_WITH_GCB = (False, False, False, False)
+_C.MODEL.GCB = CN()
+_C.MODEL.GCB.ratio = 1./16.
 # Last stride of backbone
 _C.MODEL.LAST_STRIDE = 1
 # Path to pretrained model of backbone
-_C.MODEL.PRETRAIN_PATH = 'resnet50-19c8e357.pth'
+#_C.MODEL.PRETRAIN_PATH = 'resnet50-19c8e357.pth'
 #_C.MODEL.PRETRAIN_PATH ='resnet101-5d3b4d8f.pth'
+_C.MODEL.PRETRAIN_PATH ='resnet152-b121ed2d.pth'
 # Use ImageNet pretrained model to initialize backbone or use self trained model to initialize the whole model
 # Options: 'imagenet' or 'self'
 _C.MODEL.PRETRAIN_CHOICE = 'imagenet'
@@ -82,7 +89,7 @@ _C.DATALOADER = CN()
 # Number of data loading threads
 _C.DATALOADER.NUM_WORKERS = 8
 # Sampler for data loading
-_C.DATALOADER.SAMPLER = 'softmax'
+_C.DATALOADER.SAMPLER = 'softmax_rank'
 # Number of instance for one batch
 _C.DATALOADER.NUM_INSTANCE = 16
 
@@ -104,6 +111,10 @@ _C.SOLVER.MOMENTUM = 0.9
 _C.SOLVER.MARGIN = 0.3
 # Margin of cluster ;pss
 _C.SOLVER.CLUSTER_MARGIN = 0.3
+_C.SOLVER.MARGIN_RANK = 1.3
+_C.SOLVER.ALPHA = 2.0
+_C.SOLVER.TVAL = 1.0
+_C.SOLVER.WEIGHT = 0.4
 # Learning rate of SGD to learn the centers of center loss
 _C.SOLVER.CENTER_LR = 0.5
 # Balanced weight of center loss
@@ -127,7 +138,7 @@ _C.SOLVER.STEPS = (30, 55)
 # warm up factor
 _C.SOLVER.WARMUP_FACTOR = 1.0 / 3
 # iterations of warm up
-_C.SOLVER.WARMUP_ITERS = 500
+_C.SOLVER.WARMUP_ITERS = 5
 # method of warm up, option: 'constant','linear'
 _C.SOLVER.WARMUP_METHOD = "linear"
 
