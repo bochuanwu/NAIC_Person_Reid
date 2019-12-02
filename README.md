@@ -17,3 +17,7 @@
 - Focal loss
 - [OSM Loss](https://arxiv.org/pdf/1811.01459v2.pdf)
 - [GCNet](https://arxiv.org/abs/1904.11492?context=cs.LG)
+
+3. [pretrained-weights](https://pan.baidu.com/s/1EhC6doJvJH6uOX9fOe4pWw)
+ 提取码: kmn2 
+ copy to folder 'market1501' 
