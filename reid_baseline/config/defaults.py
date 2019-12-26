@@ -30,7 +30,7 @@ _C.MODEL.WITH_IBN = False
 # Global Context Block configuration
 _C.MODEL.STAGE_WITH_GCB = (False, False, False, False)
 _C.MODEL.GCB = CN()
-_C.MODEL.GCB.ratio = 1./16.
+_C.MODEL.GCB.ratio = 1./4.
 # Last stride of backbone
 _C.MODEL.LAST_STRIDE = 1
 # Path to pretrained model of backbone

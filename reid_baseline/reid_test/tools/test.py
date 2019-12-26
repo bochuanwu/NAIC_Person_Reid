@@ -39,13 +39,13 @@ def re_ranking(probFea, galFea, k1, k2, lambda_value, local_distmat=None, only_l
                       torch.pow(feat, 2).sum(dim=1, keepdim=True).expand(all_num, all_num).t()
         distmat.addmm_(1,-2,feat,feat.t())
         original_dist = distmat.cpu().numpy()
-        del feat
+        del feat,probFea,galFea
         if not local_distmat is None:
             original_dist = original_dist + local_distmat
     gallery_num = original_dist.shape[0]
-    original_dist = np.transpose(original_dist / np.max(original_dist, axis=0))
+    original_dist = np.transpose(original_dist / np.max(original_dist, axis=0)).astype(np.float16)
     V = np.zeros_like(original_dist).astype(np.float16)
-    initial_rank = np.argsort(original_dist).astype(np.int32)
+    initial_rank = np.argsort(original_dist).astype(np.int16)
 
     print('starting re_ranking')
     for i in range(all_num):
