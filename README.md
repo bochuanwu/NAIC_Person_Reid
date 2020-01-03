@@ -1,5 +1,6 @@
 # Person-ReID
-全国人工智能大赛
+全国人工智能大赛复赛方案
+global feature部分，没进决赛懒得整理代码了（摊手）
 
 1. Install dependencies:
     - [pytorch>=0.4](https://pytorch.org/)
